@@ -2,7 +2,7 @@
 """module has BaseModule"""
 import uuid
 from datetime import datetime
-
+import json
 
 class BaseModel:
     """BaseModel that defines all common attributes/methods
@@ -12,7 +12,8 @@ class BaseModel:
     def __init__(self):
         """init magic method"""
         self.id = str(uuid.uuid4())
-        self.created_at = self.updated_at = datetime.now()
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def __str__(self):
         """string representation of instance
@@ -25,10 +26,10 @@ class BaseModel:
         """
         self.updated_at = datetime.now()
 
+    def to_dict(self):
+        self.created_at = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        self.updated_at = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f") 
+        # return (json.dumps(self.__dict__))
+        return f"{self.__dict__}"
 
-b = BaseModel()
-print(b.id)
-# print()
-b.save()
-# print()
-print(b)
+
