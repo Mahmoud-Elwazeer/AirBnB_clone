@@ -28,19 +28,11 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def to_dict(self):
+        """returns a dictionary containing all keys/values
+        of the instance
+        """
         class_name = __class__.__name__
         self.created_at = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         self.updated_at = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         self.__dict__["__class__"] = class_name
         return self.__dict__
-        # # return (json.dumps(self.__dict__))
-        # return f"{self.__dict__}"
-
-        # for key, value in self.__dict__.items():
-        #     if key == "created_at" or key == "updated_at":
-        #         self.created_at = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-        #         self.updated_at = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-
-
-my_model_json = BaseModel().to_dict()
-print(my_model_json)
