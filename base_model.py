@@ -27,7 +27,7 @@ class BaseModel:
 
 
 b = BaseModel()
-# print(b.id)
+print(b.id)
 # print()
 b.save()
 # print()
