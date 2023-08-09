@@ -24,6 +24,7 @@ class FileStorage:
         """sets in objects attribute the obj 
         with calssName.<id> as key
         """
+        #  sets in __objects the obj with key <obj class name>.id
         # self.__objects[key] = obj
         # key = <obj class name>.id
         # classname.id  ->     ERROR
@@ -37,7 +38,7 @@ class FileStorage:
         self.__objects[key] = obj
 
     def save(self):
-        with open(self.__file_path, mode='w', encoding='utf-8') as fp:
+        with open(self.__file_path, mode='a', encoding='utf-8') as fp:
             json.dump(self.__objects, fp, indent=4)
 
     def reload(self):

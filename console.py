@@ -10,6 +10,8 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_shell(self, line):
+        """excute shell command type shell[command] or ![command]
+        """
         output = os.popen(line).read()
         print(output)
 
