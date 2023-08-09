@@ -7,6 +7,11 @@ import os
 class HBNBCommand(cmd.Cmd):
     """ simple command processor Example"""
 
+    our_classes = ["BaseModel",
+                   "User", "City",
+                   "State", "Place",
+                   "Review", "Amenity"]
+
     prompt = '(hbnb) '
 
     def do_shell(self, line):
@@ -25,6 +30,33 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         """Quit command to exit the program"""
         return True
+
+    def do_create(self, line):
+        """creates new instace as save it to json file
+        """
+        # print(line)
+        # args = line.split()
+        # print(args)
+        if not line:
+            print("** class name missing **")
+        elif line not in HBNBCommand.our_classes:
+            print("** class doesn't exist **")
+        else:
+            # new_obj = line + "()"
+            # print(new_obj.id)
+            # new_obj.save()
+            pass
+
+    def do_show(self, line):
+        args = line.split()
+        if not args[0]:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.our_classes:
+            print("** class doesn't exist **")
+        elif not args[1]:
+            print("** instance id missing **")
+        else:
+            pass
 
 
 if __name__ == '__main__':
