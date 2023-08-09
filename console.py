@@ -3,6 +3,7 @@
 import cmd
 import os
 
+
 class HBNBCommand(cmd.Cmd):
     """ simple command processor Example"""
 
@@ -18,7 +19,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         pass
-    
+
     def do_quit(self, line):
         """Quit command to exit the program"""
         return True
