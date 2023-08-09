@@ -2,7 +2,6 @@
 """module has BaseModule"""
 import uuid
 from datetime import datetime
-import json
 
 
 class BaseModel:
@@ -17,13 +16,25 @@ class BaseModel:
             args: is a Tuple that contains all arguments (unused)
             kwargs:  is a dictionary that contains all arguments by key/value
         """
+        dt_format = "%Y-%m-%dT%H:%M:%S.%f"
         if len(kwargs) == 0 and kwargs is None:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
         else:
             for key, value in kwargs.items():
-                pass
+                if key == "__class__":
+                    pass
+                elif key == "created_at":
+                    # convert string format into datetime object
+                    # datetime.strptime(string_format, datetime_fromat)
+                    self.created_at = datetime.strptime(
+                        kwargs["created_at"], dt_format)
+                elif key == "updated_at":
+                    self.updated_at = datetime.strptime(
+                        kwargs["updated_at"], dt_format)
+                else:
+                    setattr(self, key, value)
 
     def __str__(self):
         """string representation of instance
