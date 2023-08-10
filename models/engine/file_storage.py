@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Storage module for storing the date as JSON format
 """
-# from models.base_model import BaseModel
-import json
+
 from models.base_model import BaseModel
+import json
 
 
 class FileStorage:
@@ -46,7 +46,7 @@ class FileStorage:
         convert_to_dict = {}
         for key, value in self.__objects.items():
             convert_to_dict[key] = value.to_dict()
-        with open(self.__file_path, mode='a', encoding='utf-8') as fp:
+        with open(self.__file_path, mode='w', encoding='utf-8') as fp:
             json.dump(convert_to_dict, fp, indent=4)
 
     def reload(self):
@@ -54,11 +54,10 @@ class FileStorage:
             with open(self.__file_path, mode='r', encoding='utf-8') as fp:
                 data = json.load(fp)
                 for key, value in data.items():
-                    # class_name = BaseModel
-                    # class_ = class_name  # Use the models dictionary
-                    # obj = class_(**value)
-                    # self.__objects[key] = obj
-                    self.__objects[key] = BaseModel(**value)
+                    class_name, obj_id = key.split('.')
+                    class_ = BaseModel # Use the models dictionary
+                    obj = class_(**value)
+                    self.__objects[key] = obj
         except:
             pass
 
