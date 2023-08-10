@@ -41,12 +41,10 @@ class HBNBCommand(cmd.Cmd):
         elif line not in models.keys():
             print("** class doesn't exist **")
         else:
-            # new_obj = line + "()"
-            # print(new_obj.id)
-            # new_obj.save()
-            my_model = models[line]()
-            print(my_model.id)
-            my_model.save()
+            storage.reload()
+            self.my_model = models[line]()
+            self.my_model.save()
+            print(self.my_model.id)
 
     def do_show(self, line):
         args = line.split()
