@@ -4,7 +4,6 @@
 # from models.base_model import BaseModel
 import json
 
-
 class FileStorage:
     """class sued for serialization and deserialization
 
@@ -41,7 +40,10 @@ class FileStorage:
     #     print(self.__objects)
 
     def save(self):
-        convert_to_dict = {key: obj.to_dict() for key, obj in self.__objects.items()}
+        # convert_to_dict = {key: obj.to_dict() for key, obj in self.__objects.items()}
+        convert_to_dict = {}
+        for key, value in self.__objects.items():
+            convert_to_dict[key] = value.to_dict()
         with open(self.__file_path, mode='a', encoding='utf-8') as fp:
             json.dump(convert_to_dict, fp, indent=4)
 
@@ -49,12 +51,11 @@ class FileStorage:
         try:
             with open(self.__file_path, mode='r', encoding='utf-8') as fp:
                 data = json.load(fp)
-                for key, value in data.items():
-                    class_name, obj_id = key.split('.')
-                    class_ = models[class_name]  # Assuming models is a dictionary mapping class names to classes
-                    obj = class_(**value)
-                    self.__objects[key] = obj
-
+                # for key, value in data.items():
+                #     class_name = BaseModel
+                #     class_ = class_name  # Use the models dictionary
+                #     obj = class_(**value)
+                #     self.__objects[key] = obj
         except:
             pass
 
