@@ -41,13 +41,20 @@ class FileStorage:
     #     print(self.__objects)
 
     def save(self):
+        convert_to_dict = {key: obj.to_dict() for key, obj in self.__objects.items()}
         with open(self.__file_path, mode='a', encoding='utf-8') as fp:
-            json.dump(self.__objects, fp, indent=4)
+            json.dump(convert_to_dict, fp, indent=4)
 
     def reload(self):
         try:
             with open(self.__file_path, mode='r', encoding='utf-8') as fp:
-                py_object = json.load(fp)
+                data = json.load(fp)
+                for key, value in data.items():
+                    class_name, obj_id = key.split('.')
+                    class_ = models[class_name]  # Assuming models is a dictionary mapping class names to classes
+                    obj = class_(**value)
+                    self.__objects[key] = obj
+
         except:
             pass
 
