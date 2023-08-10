@@ -2,6 +2,7 @@
 """called console that contains the entry point of the command interpreter"""
 import cmd
 import os
+from models.all_models import models
 
 
 class HBNBCommand(cmd.Cmd):
@@ -39,13 +40,16 @@ class HBNBCommand(cmd.Cmd):
         # print(args)
         if not line:
             print("** class name missing **")
-        elif line not in HBNBCommand.our_classes:
+        elif line not in models.keys():
             print("** class doesn't exist **")
         else:
             # new_obj = line + "()"
             # print(new_obj.id)
             # new_obj.save()
-            pass
+            my_model = models[line]()
+            my_model.save()
+            print(my_model.id)
+
 
     def do_show(self, line):
         args = line.split()
