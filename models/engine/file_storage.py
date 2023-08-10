@@ -3,6 +3,7 @@
 """
 # from models.base_model import BaseModel
 import json
+from ..base_model import BaseModel
 
 class FileStorage:
     """class sued for serialization and deserialization
@@ -51,11 +52,11 @@ class FileStorage:
         try:
             with open(self.__file_path, mode='r', encoding='utf-8') as fp:
                 data = json.load(fp)
-                # for key, value in data.items():
-                #     class_name = BaseModel
-                #     class_ = class_name  # Use the models dictionary
-                #     obj = class_(**value)
-                #     self.__objects[key] = obj
+                for key, value in data.items():
+                    class_name = BaseModel
+                    class_ = class_name  # Use the models dictionary
+                    obj = class_(**value)
+                    self.__objects[key] = obj
         except:
             pass
 
