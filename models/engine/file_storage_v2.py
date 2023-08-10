@@ -8,6 +8,7 @@ import json
 class FileStorage:
     """class sued for serialization and deserialization
 
+    
     Attrs:
         file_path: path to the JSON file
         objects: dictionary to store all objects
