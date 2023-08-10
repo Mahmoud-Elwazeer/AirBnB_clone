@@ -27,5 +27,3 @@ class TestBaseModel(unittest.TestCase):
         b = base_model.BaseModel()
         expected_output = f"[BaseModel] ({b.id}) {b.__dict__}"
         self.assertEqual(b.__str__(), expected_output)
-
-    def test_
