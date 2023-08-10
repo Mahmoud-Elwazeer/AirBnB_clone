@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Storage module for storing the date as JSON format
 """
-from models.base_model import BaseModel
+# from models.base_model import BaseModel
 import json
 
 
@@ -37,6 +37,9 @@ class FileStorage:
         key = obj.__class__.__name__ + '.' + obj.id
         self.__objects[key] = obj
 
+    # def print_objects(self):
+    #     print(self.__objects)
+
     def save(self):
         with open(self.__file_path, mode='a', encoding='utf-8') as fp:
             json.dump(self.__objects, fp, indent=4)
@@ -45,5 +48,9 @@ class FileStorage:
         try:
             with open(self.__file_path, mode='r', encoding='utf-8') as fp:
                 py_object = json.load(fp)
-        except FileNotFoundError:
+        except:
             pass
+
+
+# test = FileStorage()
+# test.print_objects()
