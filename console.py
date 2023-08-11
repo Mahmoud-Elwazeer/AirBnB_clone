@@ -56,7 +56,8 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             print("** instance id missing **")
         else:
-            pass
+            my_dict = storage.all()
+            print(my_dict)
 
 
 if __name__ == '__main__':
