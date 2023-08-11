@@ -123,6 +123,29 @@ class HBNBCommand(cmd.Cmd):
             if my_key in my_dict.keys():
                 setattr(my_dict[my_key], args[2], args[3])
                 storage.save()
+
+    def do_count(self, line):
+        """Prints all string representation of all instances
+        based or not on the class name.
+        Ex: all <ClassName> or all
+        """
+        out_all = []
+        if not line:
+            data = storage.all()
+            for key, value in data.items():
+                out_all.append(str(data[key]))
+            print(len(out_all))
+        elif line not in our_models.keys():
+            print("** class doesn't exist **")
+        else:
+            data = storage.all()
+            for key, value in data.items():
+                class_name, obj_id = key.split('.')
+                if line == class_name:
+                    out_all.append(str(data[key]))
+                else:
+                    pass
+            print(len(out_all))
     
     def precmd(self, line):
         if "." in line:
