@@ -2,7 +2,7 @@
 """called console that contains the entry point of the command interpreter"""
 import cmd
 import os
-from models.all_models import models
+from models.all_models import our_models
 from models import storage
 
 
@@ -34,11 +34,11 @@ class HBNBCommand(cmd.Cmd):
         """
         if not line:
             print("** class name missing **")
-        elif line not in models.keys():
+        elif line not in our_models.keys():
             print("** class doesn't exist **")
         else:
             storage.reload()
-            self.my_model = models[line]()
+            self.my_model = our_models[line]()
             self.my_model.save()
             print(self.my_model.id)
 
@@ -50,7 +50,7 @@ class HBNBCommand(cmd.Cmd):
         args = line.split()
         if not line:
             print("** class name missing **")
-        elif args[0] not in models.keys():
+        elif args[0] not in our_models.keys():
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")

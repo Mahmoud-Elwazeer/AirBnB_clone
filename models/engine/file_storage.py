@@ -2,7 +2,7 @@
 """Storage module for storing the date as JSON format
 """
 
-from models.all_models import models
+from models.all_models import our_models
 import json
 
 
@@ -43,7 +43,7 @@ class FileStorage:
                 data = json.load(fp)
                 for key, value in data.items():
                     class_name, obj_id = key.split('.')
-                    obj = models[class_name](**value)
+                    obj = our_models[class_name](**value)
                     self.__objects[key] = obj
                     # self.__objects[key] = BaseModel(**value)
         except:

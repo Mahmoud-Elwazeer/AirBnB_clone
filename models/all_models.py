@@ -8,9 +8,9 @@ from models.place import Place
 from models.review import Review
 from models.amenity import Amenity
 
-models = {
-    "BaseModel" :  BaseModel,
-    "User": User, 
+our_models = {
+    "BaseModel":  BaseModel,
+    "User": User,
     "City": City,
     "State": State,
     "Place": Place,
