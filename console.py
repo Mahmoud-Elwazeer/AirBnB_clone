@@ -9,11 +9,6 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """ simple command processor Example"""
 
-    our_classes = ["BaseModel",
-                   "User", "City",
-                   "State", "Place",
-                   "Review", "Amenity"]
-
     prompt = '(hbnb) '
 
     def do_shell(self, line):
@@ -27,6 +22,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
+        """overrides for original func"""
         pass
 
     def do_quit(self, line):

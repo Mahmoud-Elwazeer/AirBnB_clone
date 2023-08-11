@@ -25,21 +25,9 @@ class FileStorage:
         """sets in objects attribute the obj 
         with calssName.<id> as key
         """
-        #  sets in __objects the obj with key <obj class name>.id
-        # self.__objects[key] = obj
-        # key = <obj class name>.id
-        # classname.id  ->     ERROR
-        # object.id    -> correct
-        # key = obj className + object.id ==> className.id
-
-        # class_name = __class__.__name__
-        # self.__objects[obj.class_name.id] = obj
 
         key = obj.__class__.__name__ + '.' + obj.id
         self.__objects[key] = obj
-
-    # def print_objects(self):
-    #     print(self.__objects)
 
     def save(self):
         # convert_to_dict = {key: obj.to_dict() for key, obj in self.__objects.items()}
@@ -61,7 +49,3 @@ class FileStorage:
                     self.__objects[key] = BaseModel(**value)
         except:
             pass
-
-
-# test = FileStorage()
-# test.print_objects()
