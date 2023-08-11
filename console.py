@@ -47,17 +47,26 @@ class HBNBCommand(cmd.Cmd):
             print(self.my_model.id)
 
     def do_show(self, line):
+        """ Prints the string representation of an instance
+        based on the class name and id.
+        Ex: show <ClassName> <id>
+        """
         args = line.split()
         # print(args)
-        if len(args) == 0:
+        # if len(args) == 0:
+        if not line:
             print("** class name missing **")
-        elif args[0] not in models.keys():
-            print("** class doesn't exist **")
-        elif len(args) == 1:
-            print("** instance id missing **")
+        # elif args[0] not in models.keys():
+        #     print("** class doesn't exist **")
+        # elif len(args) == 1:
+        #     print("** instance id missing **")
+        # else:
+        #     my_dict = storage.all()
+        #     my_key = args[0] + '.' + args[1]
+        #     print(my_key)
         else:
-            my_dict = storage.all()
-            my_key = 
+            print(line)
+            print(args)
 
 
 if __name__ == '__main__':
