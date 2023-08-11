@@ -4,6 +4,7 @@ import uuid
 from datetime import datetime
 import models
 
+
 class BaseModel:
     """BaseModel that defines all common attributes/methods
     for other classes
@@ -54,8 +55,24 @@ class BaseModel:
         """returns a dictionary containing all keys/values
         of the instance
         """
-        class_name = __class__.__name__
+        class_name = self.__class__.__name__
         self.created_at = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         self.updated_at = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         self.__dict__["__class__"] = class_name
         return self.__dict__
+
+        # class_name = self.__class__.__name__
+
+        # # Create a copy of the dictionary to avoid modifying the original object
+        # instance_dict = self.__dict__.copy()
+
+        # # Convert datetime objects to strings
+        # instance_dict['created_at'] = self.created_at.strftime(
+        #     "%Y-%m-%dT%H:%M:%S.%f")
+        # instance_dict['updated_at'] = self.updated_at.strftime(
+        #     "%Y-%m-%dT%H:%M:%S.%f")
+
+        # # Add the class name to the dictionary
+        # instance_dict['__class__'] = class_name
+
+        # return instance_dict
