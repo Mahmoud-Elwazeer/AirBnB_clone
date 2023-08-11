@@ -42,7 +42,7 @@ class BaseModel:
     def __str__(self):
         """string representation of instance
         """
-        return f"[{__class__.__name__}] ({self.id}) {self.__dict__}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """updates the public instance attribute updated_at
@@ -63,7 +63,7 @@ class BaseModel:
 
         # Create a copy of the dictionary to avoid modifying the original object
         instance_dict = self.__dict__.copy()
-        
+
         class_name = self.__class__.__name__
 
         # Convert datetime objects to strings
