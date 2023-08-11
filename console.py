@@ -105,6 +105,26 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
 
+    def do_update(self, line):
+        args = line.split()
+        if not line:
+            print("** class name missing **")
+        elif args[0] not in our_models.keys():
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        elif len(args) == 2:
+            print("** attribute name missing **")
+        elif len(args) == 3:
+            print("** value missing **")
+        else:
+            my_dict = storage.all()
+            my_key = args[0] + '.' + args[1]
+            if my_key in my_dict.keys():
+                setattr(my_dict[my_key], args[2], args[3])
+                storage.save()
+
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
