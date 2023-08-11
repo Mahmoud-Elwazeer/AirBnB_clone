@@ -30,6 +30,9 @@ class FileStorage:
         self.__objects[key] = obj
 
     def save(self):
+        """method used for converting python object into
+        JSON string
+        """
         # convert_to_dict = {key: obj.to_dict() for key, obj in self.__objects.items()}
         convert_to_dict = {}
         for key, value in self.__objects.items():
@@ -38,6 +41,9 @@ class FileStorage:
             json.dump(convert_to_dict, fp, indent=4)
 
     def reload(self):
+        """method used for converting JSON strign into
+        python obect
+        """
         try:
             with open(self.__file_path, mode='r', encoding='utf-8') as fp:
                 data = json.load(fp)

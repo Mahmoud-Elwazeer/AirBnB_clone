@@ -27,3 +27,13 @@ class TestBaseModel(unittest.TestCase):
         b = base_model.BaseModel()
         expected_output = f"[BaseModel] ({b.id}) {b.__dict__}"
         self.assertEqual(b.__str__(), expected_output)
+
+    def test_unique_id(self):
+        """test if the id is unique"""
+        b1 = base_model.BaseModel()
+        b2 = base_model.BaseModel()
+
+        self.assertNotEqual(b1.id, b2.id)
+
+    def test_to_dict(self):
+        b = base_model.BaseModel()
