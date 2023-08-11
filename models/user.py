@@ -15,5 +15,8 @@ class User(BaseModel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+    def to_dict(self):
+        return super().to_dict()
+
     # def __str__(self):
     #     return f"{self.__class__.__name__}"

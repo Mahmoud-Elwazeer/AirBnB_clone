@@ -61,10 +61,10 @@ class BaseModel:
         # self.__dict__["__class__"] = class_name
         # return self.__dict__
 
-        class_name = self.__class__.__name__
-
         # Create a copy of the dictionary to avoid modifying the original object
         instance_dict = self.__dict__.copy()
+        
+        class_name = self.__class__.__name__
 
         # Convert datetime objects to strings
         instance_dict['created_at'] = self.created_at.strftime(
