@@ -52,21 +52,19 @@ class HBNBCommand(cmd.Cmd):
         Ex: show <ClassName> <id>
         """
         args = line.split()
-        # print(args)
-        # if len(args) == 0:
         if not line:
             print("** class name missing **")
-        # elif args[0] not in models.keys():
-        #     print("** class doesn't exist **")
-        # elif len(args) == 1:
-        #     print("** instance id missing **")
-        # else:
-        #     my_dict = storage.all()
-        #     my_key = args[0] + '.' + args[1]
-        #     print(my_key)
+        elif args[0] not in models.keys():
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
         else:
-            print(line)
-            print(args)
+            my_dict = storage.all()
+            my_key = args[0] + '.' + args[1]
+            if my_key in my_dict.keys():
+                print(my_dict[my_key])
+            else:
+                print("** no instance found **")
 
 
 if __name__ == '__main__':
