@@ -62,6 +62,29 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
 
+    def do_all(self, line):
+
+        out_all = []
+        if not line:
+            data = storage.all()
+            for key, value in data.items():
+                out_all.append(str(data[key]))
+            print(out_all)
+        elif line not in our_models.keys():
+            print("** class doesn't exist **")
+        else:
+            data = storage.all()
+            for key, value in data.items():
+                class_name, obj_id = key.split('.')
+                if line == class_name:
+                    out_all.append(str(data[key]))
+                else:
+                    pass
+            print(out_all)
+
+
+
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
