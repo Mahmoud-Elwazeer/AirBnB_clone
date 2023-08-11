@@ -123,6 +123,12 @@ class HBNBCommand(cmd.Cmd):
             if my_key in my_dict.keys():
                 setattr(my_dict[my_key], args[2], args[3])
                 storage.save()
+    
+    def precmd(self, line):
+        if "." in line:
+            desired, others = line.split(".")
+            line = others[:-2] + " " + desired
+        return cmd.Cmd.precmd(self, line)
 
 
 
