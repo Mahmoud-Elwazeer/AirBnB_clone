@@ -22,7 +22,7 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        """sets in objects attribute the obj 
+        """sets in objects attribute the obj
         with calssName.<id> as key
         """
 
@@ -33,7 +33,8 @@ class FileStorage:
         """method used for converting python object into
         JSON string
         """
-        # convert_to_dict = {key: obj.to_dict() for key, obj in self.__objects.items()}
+        # convert_to_dict = {key: obj.to_dict() for key, obj
+        # in self.__objects.items()}
         convert_to_dict = {}
         for key, value in self.__objects.items():
             convert_to_dict[key] = value.to_dict()
@@ -52,5 +53,5 @@ class FileStorage:
                     obj = our_models[class_name](**value)
                     self.__objects[key] = obj
                     # self.__objects[key] = BaseModel(**value)
-        except:
+        except FileNotFoundError:
             pass
