@@ -2,6 +2,7 @@
 """module used for testing User
 """
 from models import user
+from datetime import datetime
 import unittest
 
 
@@ -24,12 +25,18 @@ class TestBaseModel(unittest.TestCase):
 
     def test_str_method(self):
         """testing __str__ representation"""
-        b = user.BaseModel()
-        expected_output = f"[BaseModel] ({b.id}) {b.__dict__}"
+        b = user.User()
+        expected_output = f"[User] ({b.id}) {b.__dict__}"
         self.assertEqual(b.__str__(), expected_output)
 
     def test_unique_id(self):
         """test if the id is unique"""
-        u1 = user.BaseModel()
-        u2 = user.BaseModel()
+        u1 = user.User()
+        u2 = user.User()
         self.assertNotEqual(u1.id, u2.id)
+
+    def test_datetime_(self):
+        """test the format of datetime
+        """
+        u = user.User()
+        self.assertTrue(u.created_at not datetime.now())
