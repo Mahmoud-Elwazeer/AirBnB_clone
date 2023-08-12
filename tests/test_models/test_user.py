@@ -77,4 +77,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(my_dict["__class__"], u.__class__.__name__)
         self.assertEqual(my_dict["id"], u.id)
 
-    # def test_
+    def test_save(self):
+        """test save method for User class
+        """
+        u = user.User()
