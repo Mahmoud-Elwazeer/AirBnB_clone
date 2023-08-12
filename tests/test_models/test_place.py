@@ -6,7 +6,7 @@ from datetime import datetime
 import unittest
 
 
-class TestBaseModel(unittest.TestCase):
+class TestPlace(unittest.TestCase):
     """test cases for place class
     """
 

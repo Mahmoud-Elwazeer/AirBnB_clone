@@ -6,7 +6,7 @@ from datetime import datetime
 import unittest
 
 
-class TestBaseModel(unittest.TestCase):
+class TestAmenity(unittest.TestCase):
     """test cases for amenity class
     """
 
@@ -29,8 +29,8 @@ class TestBaseModel(unittest.TestCase):
     def test_is_init(self):
         """test if an object (instance) from Amenity type
         """
-        u = amenity.Amenity()
-        self.assertIsInstance(u, amenity.Amenity)
+        a = amenity.Amenity()
+        self.assertIsInstance(a, amenity.Amenity)
 
     def test_attr_formats(self):
         """test the format of class attributes in Uers class
