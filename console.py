@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""called console that contains the entry point of the command interpreter"""
+"""called console that contains the entry point of the command interpreter
+"""
 import cmd
 import os
 from models.all_models import our_models
@@ -12,13 +13,16 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_shell(self, line):
-        """excute shell command type shell[command] or ![command]
+        """excute shell commands
+        Usage: shell<command> or !<command>
         """
         output = os.popen(line).read()
         print(output)
 
     def do_EOF(self, line):
-        """EOF command to exit the program"""
+        """EOF command to exit the program
+        Usage: EOF
+        """
         return True
 
     def emptyline(self):
@@ -26,11 +30,14 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_quit(self, line):
-        """Quit command to exit the program"""
+        """Quit command to exit the program
+        Usage: quit
+        """
         return True
 
     def do_create(self, line):
         """creates new instace as save it to json file
+        Usage: create <className>
         """
         if not line:
             print("** class name missing **")
@@ -45,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line):
         """ Prints the string representation of an instance
         based on the class name and id.
-        Ex: show <ClassName> <id>
+        Usage: how <ClassName> <id>
         """
         args = line.split()
         if not line:
@@ -65,7 +72,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, line):
         """Prints all string representation of all instances
         based or not on the class name.
-        Ex: all <ClassName> or all
+        Usage: all <ClassName> or all
         """
         out_all = []
         if not line:
@@ -87,7 +94,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, line):
         """ deletes an instance based on the class name and id.
-        Ex: destroy <ClassName> <id>
+        Usage: destroy <ClassName> <id>
         """
         args = line.split()
         if not line:
@@ -106,6 +113,10 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_update(self, line):
+        """Updates an instance based on the class name and id
+        Usage:
+        update <class name> <id> <attribute name> "<attribute value>"
+        """
         args = line.split()
         if not line:
             print("** class name missing **")
