@@ -34,6 +34,3 @@ class TestBaseModel(unittest.TestCase):
         b2 = base_model.BaseModel()
 
         self.assertNotEqual(b1.id, b2.id)
-
-    def test_to_dict(self):
-        b = base_model.BaseModel()

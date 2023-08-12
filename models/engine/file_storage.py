@@ -25,7 +25,6 @@ class FileStorage:
         """sets in objects attribute the obj
         with calssName.<id> as key
         """
-
         key = obj.__class__.__name__ + '.' + obj.id
         self.__objects[key] = obj
 
