@@ -24,3 +24,9 @@ class TestFileStorage(unittest.TestCase):
         """
         for method in dir(file_storage):
             self.assertTrue(len(method.__doc__) > 0)
+
+    def test_all_method(self):
+        """test the return type of all method
+        """
+        f = file_storage.FileStorage()
+        self.assertEqual(type(f.all()), dict)
