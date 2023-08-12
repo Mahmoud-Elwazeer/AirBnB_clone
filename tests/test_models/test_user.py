@@ -77,7 +77,17 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(my_dict["__class__"], u.__class__.__name__)
         self.assertEqual(my_dict["id"], u.id)
 
-    def test_save(self):
-        """test save method for User class
-        """
-        u = user.User()
+    def test_kwargs_updated_at(self):
+        """check updated_at convert from string to datetime"""
+        kwargs = {
+            'updated_at': '2023-08-11T18:28:19.430963'
+        }
+        my_model = user.User(**kwargs)
+        self.assertEqual(my_model.updated_at.year, 2023)
+
+    def test_save_updatetime(self):
+        """check save update time or not"""
+        my_model = user.User()
+        old_date = my_model.updated_at
+        my_model.save()
+        self.assertNotEqual(old_date, my_model.updated_at)
