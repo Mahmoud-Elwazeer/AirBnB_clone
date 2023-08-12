@@ -26,6 +26,15 @@ class TestBaseModel(unittest.TestCase):
         for method in dir(user.BaseModel):
             self.assertTrue(len(method.__doc__) > 0)
 
+    def test_attr_formats(self):
+        """test the format of class attributes in Uers class
+        """
+        u = user.User()
+        self.assertIsInstance(u.first_name, str)
+        self.assertIsInstance(u.last_name, str)
+        self.assertIsInstance(u.email, str)
+        self.assertIsInstance(u.password, str)
+
     def test_str_method(self):
         """testing __str__ representation
         """
