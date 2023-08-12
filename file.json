@@ -44,5 +44,65 @@
         "name": "My First Model",
         "my_number": 89,
         "__class__": "BaseModel"
+    },
+    "User.c1ce0553-5e91-4bf5-978c-f6743a02dd56": {
+        "id": "c1ce0553-5e91-4bf5-978c-f6743a02dd56",
+        "created_at": "2023-08-12T21:46:48.016442",
+        "updated_at": "2023-08-12T21:46:48.016451",
+        "__class__": "User"
+    },
+    "User.b567bd01-bdd0-4cf2-9d8b-1098a822c561": {
+        "id": "b567bd01-bdd0-4cf2-9d8b-1098a822c561",
+        "created_at": "2023-08-12T21:46:48.016843",
+        "updated_at": "2023-08-12T21:46:48.016848",
+        "__class__": "User"
+    },
+    "User.5884d34b-3b14-42bf-bf64-4398fcd2e71e": {
+        "id": "5884d34b-3b14-42bf-bf64-4398fcd2e71e",
+        "created_at": "2023-08-12T21:46:48.017056",
+        "updated_at": "2023-08-12T21:46:48.017059",
+        "__class__": "User"
+    },
+    "User.b8004e25-ef9d-4289-be82-69c3794000c8": {
+        "id": "b8004e25-ef9d-4289-be82-69c3794000c8",
+        "created_at": "2023-08-12T21:46:48.017233",
+        "updated_at": "2023-08-12T21:46:48.017236",
+        "__class__": "User"
+    },
+    "User.3deaea1f-a5cb-4a47-bc9f-61f25c3cda09": {
+        "id": "3deaea1f-a5cb-4a47-bc9f-61f25c3cda09",
+        "created_at": "2023-08-12T21:46:48.017961",
+        "updated_at": "2023-08-12T21:46:48.017977",
+        "__class__": "User"
+    },
+    "State.4bef1d6d-0fe7-462c-a67d-8aefec635dcc": {
+        "id": "4bef1d6d-0fe7-462c-a67d-8aefec635dcc",
+        "created_at": "2023-08-12T21:48:01.535739",
+        "updated_at": "2023-08-12T21:48:01.535744",
+        "__class__": "State"
+    },
+    "State.abd1295d-8012-42e3-894a-650ee7f5c4cc": {
+        "id": "abd1295d-8012-42e3-894a-650ee7f5c4cc",
+        "created_at": "2023-08-12T21:48:01.535899",
+        "updated_at": "2023-08-12T21:48:01.535903",
+        "__class__": "State"
+    },
+    "State.ac68cce7-902b-4888-9f33-aae84c899a29": {
+        "id": "ac68cce7-902b-4888-9f33-aae84c899a29",
+        "created_at": "2023-08-12T21:48:01.536016",
+        "updated_at": "2023-08-12T21:48:01.536019",
+        "__class__": "State"
+    },
+    "State.01756741-78bc-413a-9e20-41538f494c48": {
+        "id": "01756741-78bc-413a-9e20-41538f494c48",
+        "created_at": "2023-08-12T21:48:01.536117",
+        "updated_at": "2023-08-12T21:48:01.536118",
+        "__class__": "State"
+    },
+    "State.e7c426b5-8567-45c5-bab2-43a340386934": {
+        "id": "e7c426b5-8567-45c5-bab2-43a340386934",
+        "created_at": "2023-08-12T21:48:01.536736",
+        "updated_at": "2023-08-12T21:48:01.536754",
+        "__class__": "State"
     }
 }
