@@ -5,6 +5,7 @@ from models import base_model
 import unittest
 from datetime import datetime
 
+
 class TestBaseModel(unittest.TestCase):
     """test cases for basemodel class
     """
@@ -25,8 +26,8 @@ class TestBaseModel(unittest.TestCase):
     def test_init(self):
         """test create object from BaseModel"""
         my_model = base_model.BaseModel()
-        self.assertIsInstance(my_model , base_model.BaseModel)
-    
+        self.assertIsInstance(my_model, base_model.BaseModel)
+
     def test_str_id(self):
         """test id -> str"""
         my_model = base_model.BaseModel()
@@ -84,4 +85,3 @@ class TestBaseModel(unittest.TestCase):
         old_date = my_model.updated_at
         my_model.save()
         self.assertNotEqual(old_date, my_model.updated_at)
-
