@@ -26,6 +26,12 @@ class TestBaseModel(unittest.TestCase):
         for method in dir(user.BaseModel):
             self.assertTrue(len(method.__doc__) > 0)
 
+    def test_is_init(self):
+        """test if an object (instance) from User type
+        """
+        u = user.User()
+        self.assertIsInstance(u, user.User)
+
     def test_attr_formats(self):
         """test the format of class attributes in Uers class
         """
@@ -70,3 +76,5 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(type(my_dict["updated_at"]), str)
         self.assertEqual(my_dict["__class__"], u.__class__.__name__)
         self.assertEqual(my_dict["id"], u.id)
+
+    # def test_
