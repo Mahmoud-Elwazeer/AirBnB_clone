@@ -49,11 +49,11 @@ $
 ```
 
 ## cmd command:
-- shell - excute shell commands
-- EOF/quit - quit the console
-- create - create new object
-- show - show an object based on id
-- all - show all objects for specific class or all objects
-- destroy - deletes an object
-- update - update an object based on class name and id
-- count - count number of objects
+- `shell` - excute shell commands
+- `EOF/quit` - quit the console
+- `create` - create new object
+- `show` - show an object based on id
+- `all` - show all objects for specific class or all objects
+- `destroy` - deletes an object
+- `update` - update an object based on class name and id
+- `count` - count number of objects
