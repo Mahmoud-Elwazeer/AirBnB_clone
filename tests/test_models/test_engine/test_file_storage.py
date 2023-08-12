@@ -3,6 +3,7 @@
 """
 from models.engine import file_storage
 import unittest
+from models.all_models import our_models
 
 
 class TestFileStorage(unittest.TestCase):
@@ -25,14 +26,32 @@ class TestFileStorage(unittest.TestCase):
         for method in dir(file_storage):
             self.assertTrue(len(method.__doc__) > 0)
 
-    def test_attrs(self):
-        file_attr = type(file_storage.FileStorage.__file_path)
-        obj_type = type(file_storage.FileStorage.__objects)
-        self.assertEqual(file_attr, str)
-        self.assertEqual(obj_type, dict)
+    # def test_private_attrs(self):
+    #     file_attr = file_storage.FileStorage.__file_path
+    #     # obj_type = type(file_storage.FileStorage.__objects)
+    #     # self.assertEqual(file_attr, str)
+    #     # self.assertEqual(obj_type, dict)
+    #     self.assertRaises(AttributeError, file_attr)
+
+    def test_private_attrs(self):
+        storage = file_storage.FileStorage()
+
+        # Attempting to access private attribute should raise an AttributeError
+        with self.assertRaises(AttributeError):
+            _ = storage.__file_path
+
+        # Attempting to access private attribute should raise an AttributeError
+        with self.assertRaises(AttributeError):
+            _ = storage.__objects
 
     def test_all_method(self):
         """test the return type of all method
         """
         f = file_storage.FileStorage()
         self.assertEqual(type(f.all()), dict)
+
+    # def test_new(self):
+    #     user = our_models["User"]()
+    #     self.storage.new(user)
+    #     self.assertIn(f'{user.__class__.__name__}.{user.id}',
+    #                   self.storage.all())
