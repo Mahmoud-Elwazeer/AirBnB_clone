@@ -26,23 +26,23 @@ class TestFileStorage(unittest.TestCase):
         for method in dir(file_storage):
             self.assertTrue(len(method.__doc__) > 0)
 
-    # def test_private_attrs(self):
-    #     file_attr = file_storage.FileStorage.__file_path
-    #     # obj_type = type(file_storage.FileStorage.__objects)
-    #     # self.assertEqual(file_attr, str)
-    #     # self.assertEqual(obj_type, dict)
-    #     self.assertRaises(AttributeError, file_attr)
-
     def test_private_attrs(self):
-        storage = file_storage.FileStorage()
+        file_attr = file_storage.FileStorage.__file_path
+        # obj_type = type(file_storage.FileStorage.__objects)
+        # self.assertEqual(file_attr, str)
+        # self.assertEqual(obj_type, dict)
+        self.assertRaises(AttributeError, file_attr)
 
-        # Attempting to access private attribute should raise an AttributeError
-        with self.assertRaises(AttributeError):
-            _ = storage.__file_path
+    # def test_private_attrs(self):
+    #     storage = file_storage.FileStorage()
 
-        # Attempting to access private attribute should raise an AttributeError
-        with self.assertRaises(AttributeError):
-            _ = storage.__objects
+    #     # Attempting to access private attribute should raise an AttributeError
+    #     with self.assertRaises(AttributeError):
+    #         _ = storage.__file_path
+
+    #     # Attempting to access private attribute should raise an AttributeError
+    #     with self.assertRaises(AttributeError):
+    #         _ = storage.__objects
 
     def test_all_method(self):
         """test the return type of all method
