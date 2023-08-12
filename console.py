@@ -146,13 +146,18 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     pass
             print(len(out_all))
-    
+
     def precmd(self, line):
+        """method used for splitting the line and convert it to
+        keywords
+        EX: User.all()
+        all user
+        """
         if "." in line:
             desired, others = line.split(".")
             line = others[:-2] + " " + desired
-        return cmd.Cmd.precmd(self, line)
 
+        return cmd.Cmd.precmd(self, line)
 
 
 if __name__ == '__main__':

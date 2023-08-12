@@ -13,10 +13,9 @@ class User(BaseModel):
     last_name = ""
 
     def __init__(self, *args, **kwargs):
+        """the __init__ special method"""
         super().__init__(*args, **kwargs)
 
     def to_dict(self):
+        """method to return dict representation for the class"""
         return super().to_dict()
-
-    # def __str__(self):
-    #     return f"{self.__class__.__name__}"
