@@ -132,13 +132,14 @@ class HBNBCommand(cmd.Cmd):
             my_dict = storage.all()
             my_key = args[0] + '.' + args[1]
             if my_key in my_dict.keys():
-                try:
-                    setattr(my_dict[my_key], args[2], int(args[3]))
-                except ValueError:
-                    try:
-                        setattr(my_dict[my_key], args[2], float(args[3]))
-                    except ValueError:
-                        setattr(my_dict[my_key], args[2], args[3])
+                # try:
+                #     setattr(my_dict[my_key], args[2], int(args[3]))
+                #     storage.save()
+                # except ValueError:
+                #     setattr(my_dict[my_key], args[2], float(args[3]))
+                #     storage.save()
+                # else:
+                setattr(my_dict[my_key], args[2], args[3])
                 storage.save()
 
                 # if isinstance(args[3], int):
