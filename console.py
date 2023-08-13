@@ -165,8 +165,10 @@ class HBNBCommand(cmd.Cmd):
         all user
         """
         if "." in line:
-            desired, others = line.split(".")
-            line = others[:-2] + " " + desired
+            class_name, others = line.split(".")
+            func, attr = others.split("(")
+            line = func + " " + class_name + " " + attr[1:-2]
+            print(line)
 
         return cmd.Cmd.precmd(self, line)
 
