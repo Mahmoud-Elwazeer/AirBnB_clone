@@ -129,10 +129,26 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 3:
             print("** value missing **")
         else:
+            storage.reload()
             my_dict = storage.all()
             my_key = args[0] + '.' + args[1]
             if my_key in my_dict.keys():
-                setattr(my_dict[my_key], args[2], args[3])
+                try:
+                    value = int(args[3])
+                except ValueError:
+                    try:
+                        print(float(args[3]))
+                        value = float(args[3])
+                    except ValueError:
+                        value = args[3]
+                # if (args[3].isdigit()):
+                #     value = int(args[3])
+                # else:
+                #     try:
+                #         value = float(args[3])
+                #     except ValueError:
+                #         value = args[3]
+                setattr(my_dict[my_key], args[2], value)
                 storage.save()
 
     def do_count(self, line):
@@ -172,7 +188,7 @@ class HBNBCommand(cmd.Cmd):
                 line = func + " " + class_name + " " + attr[1:-2]
             else:
                 id, name, value,  = attr.split(',')
-                line = func + ' ' + class_name + ' ' + id[1:-2]  \
+                line = func + ' ' + class_name + ' ' + id[1:-1]  \
                     + ' ' + name[2:-1] + ' ' + '"' + value[2:-2] + '"'
         return cmd.Cmd.precmd(self, line)
 
