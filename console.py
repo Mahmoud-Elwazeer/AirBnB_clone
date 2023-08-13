@@ -178,7 +178,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 id, name, value,  = attr.split(',')
                 line = func + ' ' + class_name + ' ' + id[1:-1]  \
-                    + ' ' + name[2:-1] + ' ' + '"' + value[2:-2] + '"'
+                    + ' ' + name[2:-1] + ' ' + value[:-1]
         return cmd.Cmd.precmd(self, line)
 
 
