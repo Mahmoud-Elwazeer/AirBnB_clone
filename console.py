@@ -132,14 +132,6 @@ class HBNBCommand(cmd.Cmd):
             my_dict = storage.all()
             my_key = args[0] + '.' + args[1]
             if my_key in my_dict.keys():
-                # try:
-                #     value = int(args[3])
-                # except ValueError:
-                #     try:
-                #         value = float(args[3])
-                #     except ValueError:
-                #         value = args[3]
-                # print(type(args[3]))
                 setattr(my_dict[my_key], args[2], args[3])
                 storage.save()
 
@@ -178,13 +170,10 @@ class HBNBCommand(cmd.Cmd):
             func, attr = others.split("(")
             if (func in adv_func):
                 line = func + " " + class_name + " " + attr[1:-2]
-            # else:
-            #     id, name, value,  = attr.split(',')
-            #     line = func + ' ' + class_name + ' ' + id[1:-2]  \
-            #         + ' ' + name[2:-1] + ' ' + '"' + value[2:-2] + '"'
-            #     print(line)
-            #     # # n1, n2, n3, n4= attr.split("\"")
-            #     # # print(n1, n2, n3, n4)
+            else:
+                id, name, value,  = attr.split(',')
+                line = func + ' ' + class_name + ' ' + id[1:-2]  \
+                    + ' ' + name[2:-1] + ' ' + '"' + value[2:-2] + '"'
         return cmd.Cmd.precmd(self, line)
 
 
