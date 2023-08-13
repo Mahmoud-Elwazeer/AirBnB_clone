@@ -166,10 +166,19 @@ class HBNBCommand(cmd.Cmd):
         """
         if "." in line:
             class_name, others = line.split(".")
+            adv_func = ["all", "count", "show", "destroy"]
             func, attr = others.split("(")
-            line = func + " " + class_name + " " + attr[1:-2]
-            print(line)
+            if (func in adv_func):
+                line = func + " " + class_name + " " + attr[1:-2]
+            else:
+                id, name, value,  = attr.split(',')
+                line = func + ' ' + class_name + ' ' + id[1:-2]  \
+                + ' ' + name[2:-2] + ' ' + value[2:-2]
+                # print(attr)
+                # # n1, n2, n3, n4= attr.split("\"")
+                # # print(n1, n2, n3, n4)
 
+                print(line)
         return cmd.Cmd.precmd(self, line)
 
 
