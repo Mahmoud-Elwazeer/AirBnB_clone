@@ -136,18 +136,7 @@ class HBNBCommand(cmd.Cmd):
                 try:
                     value = int(args[3])
                 except ValueError:
-                    try:
-                        print(float(args[3]))
-                        value = float(args[3])
-                    except ValueError:
-                        value = args[3]
-                # if (args[3].isdigit()):
-                #     value = int(args[3])
-                # else:
-                #     try:
-                #         value = float(args[3])
-                #     except ValueError:
-                #         value = args[3]
+                    value = args[3]
                 setattr(my_dict[my_key], args[2], value)
                 storage.save()
 
