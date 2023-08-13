@@ -132,23 +132,8 @@ class HBNBCommand(cmd.Cmd):
             my_dict = storage.all()
             my_key = args[0] + '.' + args[1]
             if my_key in my_dict.keys():
-                # try:
-                #     setattr(my_dict[my_key], args[2], int(args[3]))
-                #     storage.save()
-                # except ValueError:
-                #     setattr(my_dict[my_key], args[2], float(args[3]))
-                #     storage.save()
-                # else:
                 setattr(my_dict[my_key], args[2], args[3])
                 storage.save()
-
-                # if isinstance(args[3], int):
-                #     setattr(my_dict[my_key], args[2], int(args[3]))
-                #     storage.save()
-                # elif isinstance(args[3], float):
-                #     setattr(my_dict[my_key], args[2], float(args[3]))
-                #     storage.save()
-                # else:
 
     def do_count(self, line):
         """Prints all string representation of all instances
@@ -188,12 +173,10 @@ class HBNBCommand(cmd.Cmd):
             else:
                 id, name, value,  = attr.split(',')
                 line = func + ' ' + class_name + ' ' + id[1:-2]  \
-                    + ' ' + name[2:-1] + ' ' + value[2:-2]
-                # print(attr)
+                    + ' ' + name[2:-1] + ' ' + '"' + value[2:-2] + '"'
+                print(line)
                 # # n1, n2, n3, n4= attr.split("\"")
                 # # print(n1, n2, n3, n4)
-
-                print(line)
         return cmd.Cmd.precmd(self, line)
 
 
