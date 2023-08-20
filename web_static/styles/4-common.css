@@ -8,5 +8,6 @@ body{
 
 .container{
     width: 1000px;
-    margin: 30px 50% 30px 50%;
+    margin: 30px auto;
+
 }
