@@ -18,9 +18,36 @@
     border: 0;
     border-radius: 4px;
     margin-left: auto;
+    
     cursor: pointer;
 }
 
 .search_button:hover{
     opacity: 0.9;
+}
+
+.locations,
+.amenities{
+    height: 100%;
+    width: 25%;
+}
+
+.locations{
+    border-right: 1px solid #DDDDDD;
+    border-radius: 4px;
+}
+
+.amenities{
+    padding: 30px;
+}
+.locations h3,
+.amenities h3{
+    font-weight: 600;
+}
+
+.locations h4,
+.amenities h4{
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 10px;
 }
