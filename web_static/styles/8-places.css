@@ -73,3 +73,9 @@
 	align-items: flex-start;
 	justify-content: center;
 }
+
+.max_guest p,
+.number_rooms p,
+.number_bathrooms p {
+	padding-top: 35px;
+}
